@@ -1,0 +1,39 @@
+/*package whatever //do not write package name here */
+
+import java.util.*;
+interface Bank{
+    public void calculateInterest();
+}
+
+public class Calculator implements Bank {
+    String bankName;
+    int amount=0,month=0;
+    int interest = 10;
+    Calculator(String bankName, String amount,String month){
+        this.bankName = bankName;
+        this.amount = Integer.parseInt(amount);
+        this.month = Integer.parseInt(month);
+    }
+    public void calculateInterest(){
+        int simpleInterest = interest*amount*month/(12*100);
+        System.out.println("" + simpleInterest);
+    }
+
+    public static void main(String[] args)
+    {
+        String bankName="",amount="",month="";
+        System.out.println("Please enter Bank Name,amount and month");
+        for(int i=0; i<3; i++){
+            Scanner sc = new Scanner(System.in);
+            if(i==0)
+            bankName = sc.next();
+            else if(i==1)
+            amount = sc.next();
+            else if(i==2)
+            month = sc.next();
+        }
+        Calculator c = new Calculator(bankName, amount, month);
+        c.calculateInterest();
+
+    }
+}
