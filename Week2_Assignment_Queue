@@ -1,0 +1,33 @@
+public class MyQueue {
+    public static void main(String[] args) {
+        Node head = new Node(2,null);
+        Node.add(new Node(3,null),head);
+        Node.add(new Node(4,null),head);
+        head = Node.delete(head);
+        while(head!=null){
+            System.out.println(head.data);
+            head = head.next;
+        }
+
+    }
+}
+class Node{
+    int data;
+    Node next;
+
+    public Node(int data, Node next) {
+        this.data = data;
+        this.next = next;
+    }
+    static void add(Node node,Node head){
+        Node temp = head;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        temp.next= node;
+    }
+    static Node delete(Node head){
+        head = head.next;
+        return head;
+    }
+}
